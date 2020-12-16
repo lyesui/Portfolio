@@ -8,6 +8,14 @@
     # 4 Navbar
         > Logo
         > Links
+    # 5 Texts
+        > Titles
+            > Big
+        > Subtitles
+            > Blue
+            > Main
+            > Small
+    # 6 Landing
 */
 
 /*--------------------------------------------------------------
@@ -24,9 +32,9 @@
 html {
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   color: white;
-  word-spacing: 1px;
+  word-spacing: 0.063rem;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
@@ -45,6 +53,7 @@ html {
 body {
   width: 100%;
   margin: 0;
+  height: 800vh;
 }
 
 h1,
@@ -111,15 +120,16 @@ a {
 
 .wrapper {
   width: 100%;
-  max-width: 1200px;
+  max-width: 75rem;
 
   margin: auto;
-  padding: 0 32px;
+  padding: 0 2rem;
 
   @media (max-width: $phone) {
-    padding: 0 18px;
+    padding: 0 1.125rem;
   }
 }
+
 /*--------------------------------------------------------------
 # 3 Background canvas
 --------------------------------------------------------------*/
@@ -135,7 +145,7 @@ a {
 --------------------------------------------------------------*/
 nav {
   position: fixed;
-  top: 50px;
+  top: 3.125rem;
   left: 0;
   right: 0;
   z-index: 99;
@@ -146,13 +156,13 @@ nav {
   align-items: center;
 
   @media (max-width: $phone) {
-    top: 32px;
+    top: 2rem;
   }
 
   /* Logo ----------*/
   .nav__logo {
-    width: 35.95px;
-    height: 40px;
+    width: 2.5rem;
+    height: 2.5rem;
 
     a {
       width: 100%;
@@ -167,27 +177,145 @@ nav {
 
   /* Links ----------*/
   .nav__links {
-    width: calc(100% - 35.95px);
-
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+    width: calc(100% - 2.5rem);
 
     li {
       float: right;
 
       &:not(:first-child) {
-        margin-right: 32px;
+        margin-right: 2rem;
       }
 
       a {
         width: 100%;
         height: 100%;
 
-        font-size: 14px;
+        font-size: 0.875rem;
         font-weight: bold;
-        letter-spacing: 0.7px;
+        letter-spacing: 0.044rem;
         text-transform: uppercase;
+      }
+    }
+  }
+}
+
+/*--------------------------------------------------------------
+# 5 Texts
+--------------------------------------------------------------*/
+/* Titles ----------*/
+.title {
+  font-family: "SilkSerif", sans-serif;
+  color: white;
+
+  &.title--big {
+    font-size: 5rem;
+    line-height: 5rem;
+    font-weight: bold;
+
+    @media (max-width: $phone) {
+      font-size: 3.125rem;
+      line-height: 3.125rem;
+    }
+  }
+}
+
+/* Subtitles ----------*/
+.subtitle {
+  font-family: "Montserrat", sans-serif;
+
+  &.subtitle--blue {
+    color: $blue;
+    font-size: 0.875rem;
+    font-weight: bold;
+    letter-spacing: 0.053rem;
+    text-transform: uppercase;
+  }
+
+  &.subtitle--main {
+    color: white;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 0.075rem;
+    text-transform: uppercase;
+  }
+
+  &.subtitle--small {
+    color: white;
+    font-size: 0.625rem;
+    letter-spacing: 0.031rem;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+}
+
+/*--------------------------------------------------------------
+# 6 Landing
+--------------------------------------------------------------*/
+.landing {
+  height: 100vh;
+  min-height: 31.25rem;
+  max-height: 93.75rem;
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  .title--big {
+    margin: 1.125rem 0;
+  }
+
+  .landing__footer {
+    width: calc(100% - 4rem);
+
+    position: absolute;
+    bottom: 3.125rem;
+    left: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width: $phone) {
+      width: calc(100% - 2.25rem);
+      left: 1.125rem;
+      bottom: 2rem;
+
+      flex-direction: column;
+    }
+
+    .landing__footer__subtitle {
+      @media (max-width: $phone) {
+        order: 2;
+      }
+    }
+
+    .landing__footer__social {
+      ul {
+        li {
+          float: left;
+
+          &:not(:first-child) {
+            margin-left: 1rem;
+          }
+
+          a {
+            display: inline-block;
+            transition: all 300ms ease-in-out;
+
+            &:hover {
+              transform: scale(1.2);
+            }
+          }
+        }
+      }
+
+      @media (max-width: $phone) {
+        order: 1;
+        margin-bottom: 1.125rem;
       }
     }
   }

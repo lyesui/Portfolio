@@ -202,14 +202,14 @@ nav .nav__links li a {
   color: white;
 }
 .title.title--big {
-  font-size: 5rem;
-  line-height: 5rem;
+  font-size: 8rem;
+  line-height: 8rem;
   font-weight: bold;
 }
 @media (max-width: 35.5rem) {
   .title.title--big {
-    font-size: 3.125rem;
-    line-height: 3.125rem;
+    font-size: 4.8rem;
+    line-height: 4.8rem;
   }
 }
 
@@ -255,6 +255,9 @@ nav .nav__links li a {
 }
 .landing .title--big {
   margin: 1.125rem 0;
+}
+.landing .subtitle--blue {
+  margin-top: 100px;
 }
 .landing .landing__footer {
   width: calc(100% - 4rem);

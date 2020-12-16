@@ -1,0 +1,64 @@
+/*--------------------------------------------------------------
+# Map
+--------------------------------------------------------------*/
+/*  
+    # 1 Imports
+    # 2 Reset    
+*/
+
+/*--------------------------------------------------------------
+# 1 Imports
+--------------------------------------------------------------*/
+@import "animations";
+@import "fonts";
+@import "mixins";
+@import "variables";
+
+/*--------------------------------------------------------------
+# 2 Reset
+--------------------------------------------------------------*/
+html {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  color: white;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $darkBlue;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

@@ -11,11 +11,16 @@
     # 5 Texts
         > Titles
             > Big
+            > Medium
+            > X Small
         > Subtitles
             > Blue
             > Main
             > Small
+        > Texts
+            > Small
     # 6 Landing
+    # 7 Testimonials
 */
 
 /*--------------------------------------------------------------
@@ -217,6 +222,35 @@ nav {
       line-height: 4.8rem;
     }
   }
+
+  &.title--medium {
+    width: 100%;
+
+    text-align: center;
+    font-size: 5rem;
+    line-height: 5rem;
+    font-weight: bold;
+
+    margin-bottom: 6.25rem;
+
+    @media (max-width: $phone) {
+      font-size: 3.125rem;
+      line-height: 3.125rem;
+    }
+  }
+
+  &.title--xsmall {
+    width: 100%;
+
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    font-size: 1.125rem;
+    line-height: 1.125rem;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    margin-bottom: 0.75rem;
+  }
 }
 
 /* Subtitles ----------*/
@@ -248,12 +282,23 @@ nav {
   }
 }
 
+/* Texts ----------*/
+.txt {
+  font-family: "Montserrat", sans-serif;
+
+  &.txt--small {
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1.375rem;
+  }
+}
+
 /*--------------------------------------------------------------
 # 6 Landing
 --------------------------------------------------------------*/
 .landing {
   height: 100vh;
-  min-height: 31.25rem;
+  min-height: 37.5rem;
   max-height: 93.75rem;
 
   position: relative;
@@ -265,12 +310,18 @@ nav {
 
   text-align: center;
 
+  margin-bottom: 15.625rem;
+
+  @media (max-width: $phone) {
+    margin-bottom: 12.5rem;
+  }
+
   .title--big {
     margin: 1.125rem 0;
   }
 
   .subtitle--blue {
-    margin-top: 100px;
+    margin-top: 6.25rem;
   }
 
   .landing__footer {
@@ -321,6 +372,63 @@ nav {
         order: 1;
         margin-bottom: 1.125rem;
       }
+    }
+  }
+}
+
+/*--------------------------------------------------------------
+# 7 Testimonials
+--------------------------------------------------------------*/
+.testimonials {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  margin-bottom: 11.625rem;
+
+  @media(max-width: $phone) {
+    margin-bottom: 8.5rem;
+  }
+
+  .testimonials__article {
+    width: 33.3%;
+
+    padding: 0 1.125rem;
+    margin-bottom: 4rem;
+
+    @media (max-width: $tablet) {
+      width: 50%;
+    }
+
+    @media (max-width: $phone) {
+      width: 100%;
+      padding: 0;
+    }
+
+    .testimonials__article__thumb {
+      width: 100%;
+      position: relative;
+
+      text-align: center;
+
+      margin-bottom: 0.75rem;
+
+      img:first-child {
+        width: 5rem;
+      }
+
+      img:last-child {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+    }
+
+    .txt {
+      text-align: center;
     }
   }
 }

@@ -3,7 +3,8 @@
 --------------------------------------------------------------*/
 /*  
     # 1 Imports
-    # 2 Reset    
+    # 2 Reset
+    # 3 Background canvas
 */
 /*--------------------------------------------------------------
 # 1 Imports
@@ -47,7 +48,9 @@ html {
 }
 
 body {
-  background-color: #020b28;
+  width: 100%;
+  height: auto;
+  margin: 0;
 }
 
 h1,
@@ -69,6 +72,16 @@ ul {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+/*--------------------------------------------------------------
+# 2 Background canvas
+--------------------------------------------------------------*/
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -99;
 }
 
 /*# sourceMappingURL=style.css.map */

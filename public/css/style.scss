@@ -3,7 +3,8 @@
 --------------------------------------------------------------*/
 /*  
     # 1 Imports
-    # 2 Reset    
+    # 2 Reset
+    # 3 Background canvas
 */
 
 /*--------------------------------------------------------------
@@ -39,7 +40,9 @@ html {
 }
 
 body {
-  background-color: $darkBlue;
+  width: 100%;
+  height: auto;
+  margin: 0;
 }
 
 h1,
@@ -61,4 +64,14 @@ ul {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+/*--------------------------------------------------------------
+# 2 Background canvas
+--------------------------------------------------------------*/
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -99;
 }

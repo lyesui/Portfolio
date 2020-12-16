@@ -5,7 +5,7 @@ let scene,
   flash,
   rain,
   rainGeo,
-  rainCount = 3000;
+  rainCount = 1000;
 
 function init() {
   scene = new THREE.Scene();

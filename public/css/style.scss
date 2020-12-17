@@ -60,6 +60,7 @@ html {
 body {
   width: 100%;
   margin: 0;
+  overflow-x: hidden;
 }
 
 h1,
@@ -86,6 +87,8 @@ ul {
 a {
   color: white;
   text-decoration: none;
+
+  transition: all 300ms ease-in-out;
 
   &.a--slice {
     overflow: hidden;
@@ -122,6 +125,10 @@ a {
       }
     }
   }
+
+  &:hover {
+    color: #c7fffd;
+  }
 }
 
 .wrapper {
@@ -136,6 +143,45 @@ a {
   }
 }
 
+::-moz-selection {
+  /* Code for Firefox */
+  color: $darkBlue;
+  background: $blue;
+}
+
+::selection {
+  color: $darkBlue;
+  background: $blue;
+}
+
+img {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 0.3rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $darkBlue;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $blue;
+  border-radius: 10rem;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $blue_hover;
+}
 /*--------------------------------------------------------------
 # 3 Background canvas
 --------------------------------------------------------------*/
@@ -584,8 +630,28 @@ footer {
     }
     &:hover {
       img {
-        transform: scale(1.2)
+        transform: scale(1.2);
       }
+    }
+  }
+}
+
+/*--------------------------------------------------------------
+# 10 Cursor
+--------------------------------------------------------------*/
+@media (hover: hover) and (pointer: fine) {
+  #cursor {
+    z-index: 99;
+    position: fixed;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    will-change: transform;
+
+    .cursor--inner {
+      height: 38px;
+      transform: translate(-50%, -50%);
+      opacity: 0.6;
     }
   }
 }

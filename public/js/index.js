@@ -127,74 +127,102 @@ function onWindowResize() {
 /*--------------------------------------------------------------
 # 2 Smooth scrolling
 --------------------------------------------------------------*/
-function initScroll(){
-	new SmoothScroll(document,40,12)
+function initScroll() {
+  new SmoothScroll(document, 40, 12);
 }
 
 function SmoothScroll(target, speed, smooth) {
-	if (target === document)
-		target = (document.scrollingElement 
-              || document.documentElement 
-              || document.body.parentNode 
-              || document.body) // cross browser support for document scrolling
-      
-	var moving = false
-	var pos = target.scrollTop
-  var frame = target === document.body 
-              && document.documentElement 
-              ? document.documentElement 
-              : target // safari is the new IE
-  
-	target.addEventListener('mousewheel', scrolled, { passive: false })
-	target.addEventListener('DOMMouseScroll', scrolled, { passive: false })
+  if (target === document)
+    target =
+      document.scrollingElement ||
+      document.documentElement ||
+      document.body.parentNode ||
+      document.body; // cross browser support for document scrolling
 
-	function scrolled(e) {
-		e.preventDefault(); // disable default scrolling
+  var moving = false;
+  var pos = target.scrollTop;
+  var frame =
+    target === document.body && document.documentElement
+      ? document.documentElement
+      : target; // safari is the new IE
 
-		var delta = normalizeWheelDelta(e)
+  target.addEventListener("mousewheel", scrolled, { passive: false });
+  target.addEventListener("DOMMouseScroll", scrolled, { passive: false });
 
-		pos += -delta * speed
-		pos = Math.max(0, Math.min(pos, target.scrollHeight - frame.clientHeight)) // limit scrolling
+  function scrolled(e) {
+    e.preventDefault(); // disable default scrolling
 
-		if (!moving) update()
-	}
+    var delta = normalizeWheelDelta(e);
 
-	function normalizeWheelDelta(e){
-		if(e.detail){
-			if(e.wheelDelta)
-				return e.wheelDelta/e.detail/40 * (e.detail>0 ? 1 : -1) // Opera
-			else
-				return -e.detail/3 // Firefox
-		}else
-			return e.wheelDelta/120 // IE,Safari,Chrome
-	}
+    pos += -delta * speed;
+    pos = Math.max(0, Math.min(pos, target.scrollHeight - frame.clientHeight)); // limit scrolling
 
-	function update() {
-		moving = true
-    
-		var delta = (pos - target.scrollTop) / smooth
-    
-		target.scrollTop += delta
-    
-		if (Math.abs(delta) > 0.5)
-			requestFrame(update)
-		else
-			moving = false
-	}
+    if (!moving) update();
+  }
 
-	var requestFrame = function() { // requestAnimationFrame cross browser
-		return (
-			window.requestAnimationFrame ||
-			window.webkitRequestAnimationFrame ||
-			window.mozRequestAnimationFrame ||
-			window.oRequestAnimationFrame ||
-			window.msRequestAnimationFrame ||
-			function(func) {
-				window.setTimeout(func, 1000 / 50);
-			}
-		);
-	}()
+  function normalizeWheelDelta(e) {
+    if (e.detail) {
+      if (e.wheelDelta)
+        return (e.wheelDelta / e.detail / 40) * (e.detail > 0 ? 1 : -1);
+      // Opera
+      else return -e.detail / 3; // Firefox
+    } else return e.wheelDelta / 120; // IE,Safari,Chrome
+  }
+
+  function update() {
+    moving = true;
+
+    var delta = (pos - target.scrollTop) / smooth;
+
+    target.scrollTop += delta;
+
+    if (Math.abs(delta) > 0.5) requestFrame(update);
+    else moving = false;
+  }
+
+  var requestFrame = (function () {
+    // requestAnimationFrame cross browser
+    return (
+      window.requestAnimationFrame ||
+      window.webkitRequestAnimationFrame ||
+      window.mozRequestAnimationFrame ||
+      window.oRequestAnimationFrame ||
+      window.msRequestAnimationFrame ||
+      function (func) {
+        window.setTimeout(func, 1000 / 50);
+      }
+    );
+  })();
 }
+
+/*--------------------------------------------------------------
+# 3 Cursor
+--------------------------------------------------------------*/
+const cursor = document.querySelector('#cursor');
+let mouse = { x: 300, y: 300 };
+let pos = { x: 0, y: 0 };
+const speed = 0.2; // between 0 and 1
+
+const updatePosition = () => {
+  pos.x += (mouse.x - pos.x) * speed;
+  pos.y += (mouse.y - pos.y) * speed;
+  cursor.style.transform = 'translate3d(' + pos.x + 'px ,' + pos.y + 'px, 0)';
+};
+
+const updateCoordinates = e => {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+}
+
+window.addEventListener('mousemove', updateCoordinates);
+
+function loop() {
+  updatePosition();
+  requestAnimationFrame(loop);
+}
+
+requestAnimationFrame(loop);
+
 
 /*--------------------------------------------------------------
 # N Init page

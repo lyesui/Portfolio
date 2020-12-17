@@ -342,6 +342,12 @@ nav {
     margin-top: 6.25rem;
   }
 
+  @media (max-width: $phone) {
+    .subtitle--blue {
+      margin-top: 0;
+    }
+  }
+
   .landing__footer {
     width: calc(100% - 4rem);
 
@@ -355,7 +361,7 @@ nav {
     @media (max-width: $phone) {
       width: calc(100% - 2.25rem);
       left: 1.125rem;
-      bottom: 2rem;
+      bottom: 5rem;
 
       flex-direction: column;
     }

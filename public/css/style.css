@@ -321,6 +321,11 @@ nav .nav__links li a {
 .landing .subtitle--blue {
   margin-top: 6.25rem;
 }
+@media (max-width: 35.5rem) {
+  .landing .subtitle--blue {
+    margin-top: 0;
+  }
+}
 .landing .landing__footer {
   width: calc(100% - 4rem);
   position: absolute;
@@ -334,7 +339,7 @@ nav .nav__links li a {
   .landing .landing__footer {
     width: calc(100% - 2.25rem);
     left: 1.125rem;
-    bottom: 2rem;
+    bottom: 5rem;
     flex-direction: column;
   }
 }

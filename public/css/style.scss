@@ -21,6 +21,8 @@
             > Small
     # 6 Landing
     # 7 Testimonials
+    # 8 Footer
+    # 9 Circles
 */
 
 /*--------------------------------------------------------------
@@ -58,7 +60,6 @@ html {
 body {
   width: 100%;
   margin: 0;
-  height: 800vh;
 }
 
 h1,
@@ -231,11 +232,26 @@ nav {
     line-height: 5rem;
     font-weight: bold;
 
-    margin-bottom: 6.25rem;
-
     @media (max-width: $phone) {
       font-size: 3.125rem;
       line-height: 3.125rem;
+    }
+
+    margin-bottom: 18px;
+
+    &.title--alone {
+      margin-bottom: 6.25rem;
+    }
+  }
+
+  &.title--small {
+    font-size: 3.125rem;
+    line-height: 3.125rem;
+    font-weight: bold;
+
+    @media (max-width: $phone) {
+      font-size: 1.625rem;
+      line-height: 1.625rem;
     }
   }
 
@@ -266,6 +282,8 @@ nav {
   }
 
   &.subtitle--main {
+    width: 100%;
+    text-align: center;
     color: white;
     font-size: 0.75rem;
     font-weight: bold;
@@ -386,7 +404,7 @@ nav {
 
   margin-bottom: 11.625rem;
 
-  @media(max-width: $phone) {
+  @media (max-width: $phone) {
     margin-bottom: 8.5rem;
   }
 
@@ -429,6 +447,139 @@ nav {
 
     .txt {
       text-align: center;
+    }
+  }
+}
+
+/*--------------------------------------------------------------
+# 8 Footer
+--------------------------------------------------------------*/
+footer {
+  width: 100%;
+  height: 43.75rem;
+
+  position: relative;
+  z-index: 9;
+
+  .footer__background {
+    width: 100%;
+    max-height: 43.75rem;
+    min-height: 38rem;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -2;
+
+    opacity: 0.8;
+
+    object-fit: cover;
+    object-position: top;
+  }
+
+  .footer__details {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 50px;
+
+    .subtitle {
+      text-align: left;
+      margin-bottom: 32px;
+
+      @media (max-width: $phone) {
+        margin-bottom: 18px;
+      }
+    }
+
+    .footer__details__contact {
+      width: 100%;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      margin-bottom: 200px;
+
+      .footer__details__contact__social {
+        ul {
+          li {
+            float: left;
+
+            &:not(:first-child) {
+              margin-left: 1rem;
+            }
+          }
+        }
+      }
+
+      @media (max-width: $tablet) {
+        flex-wrap: wrap;
+
+        .footer__details__contact__email {
+          width: 100%;
+
+          margin-bottom: 50px;
+        }
+
+        .footer__details__contact__social {
+          width: 100%;
+        }
+      }
+    }
+
+    .footer__details__credits {
+      width: 100%;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
+
+/*--------------------------------------------------------------
+# 9 Circles
+--------------------------------------------------------------*/
+.circle {
+  &.circle--darkBlurred {
+    width: 58px;
+    height: 58px;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    &::before {
+      content: "";
+      width: 58px;
+      height: 58px;
+      background-color: $darkBlue;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -2;
+
+      border-radius: 50%;
+
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      background-color: rgb(2, 11, 40, 0.36);
+    }
+
+    img {
+      transition: all 200ms ease-in-out;
+    }
+    &:hover {
+      img {
+        transform: scale(1.2)
+      }
     }
   }
 }

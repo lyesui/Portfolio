@@ -21,6 +21,8 @@
             > Small
     # 6 Landing
     # 7 Testimonials
+    # 8 Footer
+    # 9 Circles
 */
 /*--------------------------------------------------------------
 # 1 Imports
@@ -69,7 +71,6 @@ html {
 body {
   width: 100%;
   margin: 0;
-  height: 800vh;
 }
 
 h1,
@@ -223,12 +224,26 @@ nav .nav__links li a {
   font-size: 5rem;
   line-height: 5rem;
   font-weight: bold;
-  margin-bottom: 6.25rem;
+  margin-bottom: 18px;
 }
 @media (max-width: 35.5rem) {
   .title.title--medium {
     font-size: 3.125rem;
     line-height: 3.125rem;
+  }
+}
+.title.title--medium.title--alone {
+  margin-bottom: 6.25rem;
+}
+.title.title--small {
+  font-size: 3.125rem;
+  line-height: 3.125rem;
+  font-weight: bold;
+}
+@media (max-width: 35.5rem) {
+  .title.title--small {
+    font-size: 1.625rem;
+    line-height: 1.625rem;
   }
 }
 .title.title--xsmall {
@@ -254,6 +269,8 @@ nav .nav__links li a {
   text-transform: uppercase;
 }
 .subtitle.subtitle--main {
+  width: 100%;
+  text-align: center;
   color: white;
   font-size: 0.75rem;
   font-weight: bold;
@@ -395,6 +412,109 @@ nav .nav__links li a {
 }
 .testimonials .testimonials__article .txt {
   text-align: center;
+}
+
+/*--------------------------------------------------------------
+# 8 Footer
+--------------------------------------------------------------*/
+footer {
+  width: 100%;
+  height: 43.75rem;
+  position: relative;
+  z-index: 9;
+}
+footer .footer__background {
+  width: 100%;
+  max-height: 43.75rem;
+  min-height: 38rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -2;
+  opacity: 0.8;
+  object-fit: cover;
+  object-position: top;
+}
+footer .footer__details {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 50px;
+}
+footer .footer__details .subtitle {
+  text-align: left;
+  margin-bottom: 32px;
+}
+@media (max-width: 35.5rem) {
+  footer .footer__details .subtitle {
+    margin-bottom: 18px;
+  }
+}
+footer .footer__details .footer__details__contact {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 200px;
+}
+footer .footer__details .footer__details__contact .footer__details__contact__social ul li {
+  float: left;
+}
+footer .footer__details .footer__details__contact .footer__details__contact__social ul li:not(:first-child) {
+  margin-left: 1rem;
+}
+@media (max-width: 75.063rem) {
+  footer .footer__details .footer__details__contact {
+    flex-wrap: wrap;
+  }
+  footer .footer__details .footer__details__contact .footer__details__contact__email {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  footer .footer__details .footer__details__contact .footer__details__contact__social {
+    width: 100%;
+  }
+}
+footer .footer__details .footer__details__credits {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/*--------------------------------------------------------------
+# 9 Circles
+--------------------------------------------------------------*/
+.circle.circle--darkBlurred {
+  width: 58px;
+  height: 58px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.circle.circle--darkBlurred::before {
+  content: "";
+  width: 58px;
+  height: 58px;
+  background-color: #020b28;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  border-radius: 50%;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background-color: rgba(2, 11, 40, 0.36);
+}
+.circle.circle--darkBlurred img {
+  transition: all 200ms ease-in-out;
+}
+.circle.circle--darkBlurred:hover img {
+  transform: scale(1.2);
 }
 
 /*# sourceMappingURL=style.css.map */

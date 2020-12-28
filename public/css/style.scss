@@ -25,8 +25,8 @@
     # 7 Testimonials
     # 8 Footer
     # 9 Circles
-    # 10 Cursor
-    # 11 Skills
+    # 10 Skills
+    # 11 Profile
 */
 
 /*--------------------------------------------------------------
@@ -380,7 +380,6 @@ nav {
     .slice--inside {
       display: block;
       transform: translateY(100%);
-
       &.slicetxt--main {
         line-height: 1.8rem;
       }
@@ -696,27 +695,7 @@ footer {
 }
 
 /*--------------------------------------------------------------
-# 10 Cursor
---------------------------------------------------------------*/
-@media (hover: hover) and (pointer: fine) {
-  #cursor {
-    z-index: 99;
-    position: fixed;
-    left: 0;
-    top: 0;
-    pointer-events: none;
-    will-change: transform;
-
-    .cursor--inner {
-      height: 16px;
-      transform: translate(-50%, -50%);
-      opacity: 0.6;
-    }
-  }
-}
-
-/*--------------------------------------------------------------
-# 11 Skills
+# 10 Skills
 --------------------------------------------------------------*/
 .skills {
   .skills__list {
@@ -764,7 +743,7 @@ footer {
 }
 
 /*--------------------------------------------------------------
-# 12 Profile
+# 11 Profile
 --------------------------------------------------------------*/
 .profile {
   width: 100%;

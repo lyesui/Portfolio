@@ -24,9 +24,360 @@
     <!-- Background -->
     <div id="background"></div>
 
+    <!-- Cursor -->
+    <div id="cursor">
+      <div></div>
+      <img
+        class="cursor--inner"
+        src="public/images/shapes/hexagon.svg"
+        height="38px"
+      />
+    </div>
+
     <!-- Navbar -->
     <nav class="wrapper">
-        <div class="nav__logo">
+      <div class="nav__logo">
+        <a href="/">
+          <svg width="35.965" height="40">
+            <path
+              id="Path_31"
+              data-name="Path 31"
+              d="M175.694,227.9v-5.245a1.184,1.184,0,0,0-.358-.815l-4.667-4.65a1.208,1.208,0,0,0-.877-.325h-1.426v4.565h-3.3v-12.5h3.3v4.7h1.426a4.447,4.447,0,0,1,3.24,1.33l4.475,4.54a6.012,6.012,0,0,1,1.058,1.47,3.657,3.657,0,0,1,.4,1.685V227.9Zm-10.618,0a7.726,7.726,0,0,1-2.54-.41,6.7,6.7,0,0,1-2.056-1.1,5.253,5.253,0,0,1-1.371-1.645,4.283,4.283,0,0,1-.509-2.04V208.9h3.266v13.81a1.251,1.251,0,0,0,.247.75,2.406,2.406,0,0,0,.685.61,3.678,3.678,0,0,0,1.028.42,5.063,5.063,0,0,0,1.25.15h6.491a.911.911,0,0,1,.917.91v2.35Z"
+              transform="translate(-150.79 -198.4)"
+              fill="#09fbf3"
+            />
+            <path
+              id="Path_32"
+              data-name="Path 32"
+              d="M5.464,9.772a3.927,3.927,0,0,0-1.959,3.4L3.52,28.148a3.917,3.917,0,0,0,1.954,3.385l12.968,7.5a3.935,3.935,0,0,0,3.922,0L35.3,31.578a3.927,3.927,0,0,0,1.959-3.4L37.245,13.2a3.917,3.917,0,0,0-1.954-3.385l-12.973-7.5a3.935,3.935,0,0,0-3.922,0L5.464,9.772m-.552-.954L17.849,1.349a5.023,5.023,0,0,1,5.027,0l12.968,7.5A5.017,5.017,0,0,1,38.35,13.2l.015,14.981a5.022,5.022,0,0,1-2.511,4.354L22.916,40a5.023,5.023,0,0,1-5.027,0L4.921,32.5a5.017,5.017,0,0,1-2.506-4.344L2.4,13.172A5.022,5.022,0,0,1,4.911,8.817Z"
+              transform="translate(-2.4 -0.675)"
+              fill="#09fbf3"
+            />
+          </svg>
+        </a>
+      </div>
+
+      <ul class="nav__links">
+        <li>
+          <a
+            class="a--slice"
+            href="#footer"
+            title="Contact me"
+            data-link-alt="Contact"
+            ><span>Contact</span></a
+          >
+        </li>
+        <li>
+          <a
+            class="a--slice"
+            href="/about.html"
+            title="More about me"
+            data-link-alt="About me"
+            ><span>About me</span></a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main picture -->
+    <section class="landing landing--aboutme wrapper">
+      <div class="landing__titles">
+        <h6 class="subtitle subtitle--blue">About me</h6>
+        <h1 class="title title--medium">lyes hamidi</h1>
+        <h4 class="subtitle subtitle--main">Web developer / designer</h4>
+      </div>
+
+      <img
+        class="landing__thumb js-image"
+        src="public/images/aboutme__1.png"
+        alt="Lyes Hamidi :: Web developer designer"
+      />
+    </section>
+
+    <!-- Profile -->
+    <section class="profile wrapper">
+      <!-- Introduction -->
+      <div class="profile__introduction">
+        <h1 class="title title--medium">
+          <div class="txt--slice slice--mb"><span class="slice--inside">who</span></div> <div class="txt--slice slice--mb"
+            ><span class="slice--inside">am i</span></div
+          >
+        </h1>
+
+        <p class="txt txt--main">
+          <div class="txt--slice"
+            ><span class="slice--inside slicetxt--main">I’m Lyes, a 25 years old web developer designer based in Algiers,
+            Algeria.</span></div
+          >
+          <br />
+          <div class="txt--slice"
+            ><span class="slice--inside slicetxt--main">I enjoy creating things that live on the internet, whether that be
+            websites, applications, or anything in between. My goal is to always
+            build products that provide amazing experiences.</span>
+          </div>
+          <br />
+          <div class="txt--slice"
+            ><span class="slice--inside slicetxt--main">New experiences and challenges are my thing, so If you have any
+            cool projects or opportunities, <span class="txt--main--blue">get in touch!</div></span></div
+          >
+        </p>
+      </div>
+
+      <!-- Thumbnail -->
+      <div class="profile__thumbnail">
+        <img
+          src="public/images/aboutme__2.png"
+          alt="Lyes Hamidi :: Web developer designer"
+          class="profile__thumbnail__img"
+        />
+
+        <svg
+          version="1.1"
+          id="Layer_1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px"
+          y="0px"
+          viewBox="0 0 304.72 339"
+          style="enable-background: new 0 0 304.72 339"
+          xml:space="preserve"
+          class="profile__thubmnail__hexagon"
+        >
+          <path
+            id="Path_94"
+            class="st0"
+            d="M22.1,69.74L131.06,6.8c13.1-7.58,29.24-7.58,42.34,0l109.21,63.24
+          c13.07,7.56,21.11,21.52,21.11,36.61l0.13,126.27c0.02,15.13-8.05,29.13-21.15,36.7l-108.96,62.94c-13.1,7.58-29.24,7.58-42.34,0
+          L22.18,269.33c-13.07-7.56-21.11-21.52-21.11-36.62L0.95,106.44C0.93,91.3,8.99,77.31,22.1,69.74z"
+          />
+        </svg>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="skills wrapper">
+      <h1 class="title title--medium title--alone">
+        what i am<br />
+        good at
+      </h1>
+
+      <div class="skills__list">
+        <div>
+          <img
+            src="public/images/technologies/html5.svg"
+            alt="HTML5"
+            title="HTML5"
+          /><br />
+          <h1 class="subtitle subtitle--main">HTML5</h1>
+        </div>
+
+        <div>
+          <img
+            src="public/images/technologies/css3.svg"
+            alt="CSS3"
+            title="CSS3"
+          /><br />
+          <h1 class="subtitle subtitle--main">CSS3</h1>
+        </div>
+
+        <div>
+          <img
+            src="public/images/technologies/sass.svg"
+            alt="Sass"
+            title="Sass"
+          /><br />
+          <h1 class="subtitle subtitle--main">Sass</h1>
+        </div>
+
+        <div>
+          <img
+            src="public/images/technologies/javascript.svg"
+            alt="JavaScript"
+            title="JavaScript"
+          /><br />
+          <h1 class="subtitle subtitle--main">Javascript (ES6+)</h1>
+        </div>
+
+        <div>
+          <img
+            src="public/images/technologies/php.svg"
+            alt="PHP"
+            title="PHP"
+          /><br />
+          <h1 class="subtitle subtitle--main">PHP</h1>
+        </div>
+
+        <div>
+          <img
+            src="public/images/technologies/vue.svg"
+            alt="Vuejs"
+            title="Vuejs"
+          /><br />
+          <h1 class="subtitle subtitle--main">Vue.js</h1>
+        </div>
+
+        <div>
+          <img
+            src="public/images/technologies/nuxt.svg"
+            alt="Nuxtjs"
+            title="Nuxtjs"
+          /><br />
+          <h1 class="subtitle subtitle--main">Nuxtjs</h1>
+        </div>
+
+        <div>
+          <img
+            src="public/images/technologies/nativescript.svg"
+            alt="NativeScript"
+            title="NativeScript"
+          /><br />
+          <h1 class="subtitle subtitle--main">NativeScript</h1>
+        </div>
+
+        <div>
+          <img
+            src="public/images/technologies/jquery.svg"
+            alt="jQuery"
+            title="jQuery"
+          /><br />
+          <h1 class="subtitle subtitle--main">jQuery</h1>
+        </div>
+
+        <div>
+          <img
+            src="public/images/technologies/express.svg"
+            alt="Express"
+            title="Express"
+          /><br />
+          <h1 class="subtitle subtitle--main">Express</h1>
+        </div>
+
+        <div>
+          <img
+            src="public/images/technologies/laravel.svg"
+            alt="Laravel"
+            title="Laravel"
+          /><br />
+          <h1 class="subtitle subtitle--main">Laravel</h1>
+        </div>
+
+        <div>
+          <img
+            src="public/images/technologies/wordpress.svg"
+            alt="Wordpress"
+            title="Wordpress"
+          /><br />
+          <h1 class="subtitle subtitle--main">Wordpress</h1>
+        </div>
+
+        <div>
+          <img
+            src="public/images/technologies/photoshop.svg"
+            alt="Adobe Photoshop"
+            title="Adobe Photoshop"
+          /><br />
+          <h1 class="subtitle subtitle--main">Adobe Photoshop</h1>
+        </div>
+
+        <div>
+          <img
+            src="public/images/technologies/xd.svg"
+            alt="Adobe XD"
+            title="Adobe XD"
+          /><br />
+          <h1 class="subtitle subtitle--main">Adobe XD</h1>
+        </div>
+
+        <div>
+          <img
+            src="public/images/technologies/illustrator.svg"
+            alt="Adobe Illustrator"
+            title="Adobe Illustrator"
+          /><br />
+          <h1 class="subtitle subtitle--main">Adobe Illustrator</h1>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <img
+        class="footer__background"
+        src="public/images/footer.png"
+        alt="Mountains"
+      />
+
+      <h1 class="title title--medium">contact me</h1>
+      <h4 class="subtitle subtitle--main wrapper">
+        Tell me more about your amazing project !
+      </h4>
+
+      <div class="footer__details wrapper">
+        <div class="footer__details__contact">
+          <div class="footer__details__contact__email">
+            <h6 class="subtitle subtitle--main">By email</h6>
+            <a href="mailto:hamidilyes22@gmail.com" class="title title--small"
+              >hamidilyes22@gmail.com</a
+            >
+          </div>
+
+          <div class="footer__details__contact__social">
+            <h6 class="subtitle subtitle--main">On social medias</h6>
+            <ul>
+              <li>
+                <a
+                  class="circle circle--darkBlurred"
+                  href="https://instagram.com/lyes.ui"
+                  title="Instagram link"
+                  target="_blank"
+                >
+                  <img
+                    src="public/images/social/instagram_.svg"
+                    alt="Instagram link"
+                /></a>
+              </li>
+              <li>
+                <a
+                  class="circle circle--darkBlurred"
+                  href="https://github.com/lyesui"
+                  title="Github link"
+                  target="_blank"
+                  ><img
+                    src="public/images/social/github_.svg"
+                    alt="Github link"
+                /></a>
+              </li>
+              <li>
+                <a
+                  class="circle circle--darkBlurred"
+                  href="https://dribbble.com/lyes_ui"
+                  title="Dribbble link"
+                  target="_blank"
+                  ><img
+                    src="public/images/social/dribbble_.svg"
+                    alt="Dribbble link"
+                /></a>
+              </li>
+              <li>
+                <a
+                  class="circle circle--darkBlurred"
+                  href="https://www.linkedin.com/in/lyesui/"
+                  title="LinkedIn link"
+                  target="_blank"
+                  ><img
+                    src="public/images/social/linkedin_.svg"
+                    alt="LinkedIn link"
+                /></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer__details__credits">
+          <h6 class="subtitle subtitle--small">
+            Designed & developed by myself
+          </h6>
+
           <a href="/">
             <svg width="35.965" height="40">
               <path
@@ -35,7 +386,6 @@
                 d="M175.694,227.9v-5.245a1.184,1.184,0,0,0-.358-.815l-4.667-4.65a1.208,1.208,0,0,0-.877-.325h-1.426v4.565h-3.3v-12.5h3.3v4.7h1.426a4.447,4.447,0,0,1,3.24,1.33l4.475,4.54a6.012,6.012,0,0,1,1.058,1.47,3.657,3.657,0,0,1,.4,1.685V227.9Zm-10.618,0a7.726,7.726,0,0,1-2.54-.41,6.7,6.7,0,0,1-2.056-1.1,5.253,5.253,0,0,1-1.371-1.645,4.283,4.283,0,0,1-.509-2.04V208.9h3.266v13.81a1.251,1.251,0,0,0,.247.75,2.406,2.406,0,0,0,.685.61,3.678,3.678,0,0,0,1.028.42,5.063,5.063,0,0,0,1.25.15h6.491a.911.911,0,0,1,.917.91v2.35Z"
                 transform="translate(-150.79 -198.4)"
                 fill="#09fbf3"
-                
               />
               <path
                 id="Path_32"
@@ -47,33 +397,18 @@
             </svg>
           </a>
         </div>
-  
-        <ul class="nav__links">
-          <li>
-            <a
-              class="a--slice"
-              href="#footer"
-              title="Contact me"
-              data-link-alt="Contact"
-              ><span>Contact</span></a
-            >
-          </li>
-          <li>
-            <a
-              class="a--slice"
-              href="/about.html"
-              title="More about me"
-              data-link-alt="About me"
-              ><span>About me</span></a
-            >
-          </li>
-        </ul>
-      </nav>
+      </div>
+    </footer>
 
     <!-- JS Imports -->
     <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r123/three.min.js"
-      integrity="sha512-Q+IG0h7As6sfqE2t1Xf5IeamNyCXb4EXxGCA9Mlbpv7xtwurVHNdVDbyWeSQ3ulPf2FRlqeu77Ec3SJDdIR63w=="
+      src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
+      integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.min.js"
+      integrity="sha512-jeYvJdyAYkpQCY/omvCYQo89qA5YxDW4JBT7COPsHT2sOAanwxkZRFeP9gc69b5reSDpZIoyCqZQZcWZkbB5Gw=="
       crossorigin="anonymous"
     ></script>
     <script src="public/js/index.js"></script>

@@ -4,13 +4,16 @@
 /*  
     # 1 Main background
     # 2 Smooth scrolling
+    # 3 Cursor
+    # 4 Animations
+    # 5 Viewport checker
     # N Init page
 */
 
 /*--------------------------------------------------------------
 # 1 Main background
 --------------------------------------------------------------*/
-let scene,
+var scene,
   camera,
   renderer,
   cloudParticles = [],
@@ -32,9 +35,9 @@ function initBackground() {
   camera.rotation.x = 1.16;
   camera.rotation.y = -0.12;
   camera.rotation.z = 0.27;
-  ambient = new THREE.AmbientLight(0x555555);
+  const ambient = new THREE.AmbientLight(0x555555);
   scene.add(ambient);
-  directionalLight = new THREE.DirectionalLight(0xffeedd);
+  const directionalLight = new THREE.DirectionalLight(0xffeedd);
   directionalLight.position.set(0, 0, 1);
   scene.add(directionalLight);
   flash = new THREE.PointLight(0x09fbf3, 30, 500, 4);
@@ -48,7 +51,7 @@ function initBackground() {
   rainGeo = new THREE.Geometry();
 
   for (let i = 0; i < rainCount; i++) {
-    rainDrop = new THREE.Vector3(
+    var rainDrop = new THREE.Vector3(
       Math.random() * 400 - 200,
       Math.random() * 1000 - 250,
       Math.random() * 400 - 200
@@ -58,7 +61,7 @@ function initBackground() {
     rainGeo.vertices.push(rainDrop);
   }
 
-  rainMaterial = new THREE.PointsMaterial({
+  const rainMaterial = new THREE.PointsMaterial({
     color: 0x09fbf3,
     size: 0.1,
     transparent: true,
@@ -69,8 +72,8 @@ function initBackground() {
 
   let loader = new THREE.TextureLoader();
   loader.load("public/images/smoke.png", function (texture) {
-    cloudGeo = new THREE.PlaneBufferGeometry(500, 500);
-    cloudMaterial = new THREE.MeshLambertMaterial({
+    const cloudGeo = new THREE.PlaneBufferGeometry(500, 500);
+    const cloudMaterial = new THREE.MeshLambertMaterial({
       map: texture,
       transparent: true,
     });
@@ -198,7 +201,7 @@ function SmoothScroll(target, speed, smooth) {
 /*--------------------------------------------------------------
 # 3 Cursor
 --------------------------------------------------------------*/
-const cursor = document.querySelector('#cursor');
+const cursor = document.querySelector("#cursor");
 let mouse = { x: 300, y: 300 };
 let pos = { x: 0, y: 0 };
 const speed = 0.2; // between 0 and 1
@@ -206,15 +209,15 @@ const speed = 0.2; // between 0 and 1
 const updatePosition = () => {
   pos.x += (mouse.x - pos.x) * speed;
   pos.y += (mouse.y - pos.y) * speed;
-  cursor.style.transform = 'translate3d(' + pos.x + 'px ,' + pos.y + 'px, 0)';
+  cursor.style.transform = "translate3d(" + pos.x + "px ," + pos.y + "px, 0)";
 };
 
-const updateCoordinates = e => {
+const updateCoordinates = (e) => {
   mouse.x = e.clientX;
   mouse.y = e.clientY;
-}
+};
 
-window.addEventListener('mousemove', updateCoordinates);
+window.addEventListener("mousemove", updateCoordinates);
 
 function loop() {
   updatePosition();
@@ -223,6 +226,72 @@ function loop() {
 
 requestAnimationFrame(loop);
 
+/*--------------------------------------------------------------
+# 4 Animations
+--------------------------------------------------------------*/
+const animeAboutmeThumb = anime.timeline({
+  easing: 'easeInOutCubic',
+  autoplay: false
+})
+
+const animeAboutmeTxt = anime({
+  targets: '.slice--inside',
+  translateY: ['100%', '0'],
+  easing: 'easeInOutCubic',
+  duration: 1200,
+  autoplay: false,
+})
+
+const hexagon = document.querySelector('.profile__thubmnail__hexagon path')
+const thumb = document.querySelector('.profile__thumbnail__img')
+
+animeAboutmeThumb.add({
+  targets: '.profile__thubmnail__hexagon path',
+  strokeDashoffset: [anime.setDashoffset, 0],
+  easing: 'easeInOutCubic',
+  
+  complete: function(anim) {
+    animeAboutmeTxt.play()
+  }
+}).add({
+  targets: '.profile__thumbnail__img',
+  opacity: 1,
+  easing: 'easeInQuad',
+  complete: function(anime) {
+    hexagon.setAttribute("fill", "#09fbf3")
+  },
+  duration: 400,
+  
+}).add({
+  targets: '.profile__thubmnail__hexagon',
+  opacity: 1,
+  translateX: 10,
+  translateY: 10,
+  duration: 400
+})
+/*--------------------------------------------------------------
+# 5 Viewport checker
+--------------------------------------------------------------*/
+
+function isInViewport(element) {
+  var rect = element.getBoundingClientRect();
+  var html = document.documentElement;
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <= (window.innerHeight || html.clientHeight) &&
+    rect.right <= (window.innerWidth || html.clientWidth)
+  );
+}
+
+let isProfile = false
+document.addEventListener('scroll', () => {
+  const profile = document.querySelector('.profile')
+  if (isInViewport(profile) && isProfile == false) {
+    animeAboutmeThumb.play()
+    isProfile = true
+  }
+})
 
 /*--------------------------------------------------------------
 # N Init page

@@ -20,9 +20,13 @@
         > Texts
             > Small
     # 6 Landing
+        > Main
+        > About me
     # 7 Testimonials
     # 8 Footer
     # 9 Circles
+    # 10 Cursor
+    # 11 Skills
 */
 
 /*--------------------------------------------------------------
@@ -61,6 +65,7 @@ body {
   width: 100%;
   margin: 0;
   overflow-x: hidden;
+  background-color: $darkBlue;
 }
 
 h1,
@@ -355,6 +360,31 @@ nav {
     font-weight: 500;
     line-height: 1.375rem;
   }
+
+  &.txt--main {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.8rem;
+
+    .txt--main--blue {
+      color: $blue;
+      font-weight: 700;
+    }
+  }
+}
+
+.txt--slice {
+    display: block;
+    overflow-y: hidden;
+
+    .slice--inside {
+      display: block;
+      transform: translateY(100%);
+
+      &.slicetxt--main {
+        line-height: 1.8rem;
+      }
+    }   
 }
 
 /*--------------------------------------------------------------
@@ -380,7 +410,7 @@ nav {
     margin-bottom: 12.5rem;
   }
 
-  .title--big {
+  .title {
     margin: 1.125rem 0;
   }
 
@@ -442,6 +472,35 @@ nav {
         order: 1;
         margin-bottom: 1.125rem;
       }
+    }
+  }
+
+  /* About me ----------*/
+  &--aboutme {
+    max-height: 50rem;
+
+    padding-top: 1.125rem;
+    padding-bottom: 1.125rem;
+
+    @media (max-width: 43.75rem) {
+      padding-top: 6rem;
+      padding-bottom: 0;
+    }
+
+    .landing__thumb {
+      max-width: 100%;
+      height: 100%;
+
+      margin: auto;
+
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .landing__titles {
+      position: absolute;
+
+      bottom: 20%;
     }
   }
 }
@@ -596,7 +655,7 @@ footer {
 # 9 Circles
 --------------------------------------------------------------*/
 .circle {
-  &.circle--darkBlurred {
+  &--darkBlurred {
     width: 58px;
     height: 58px;
     position: relative;
@@ -649,9 +708,140 @@ footer {
     will-change: transform;
 
     .cursor--inner {
-      height: 38px;
+      height: 16px;
       transform: translate(-50%, -50%);
       opacity: 0.6;
+    }
+  }
+}
+
+/*--------------------------------------------------------------
+# 11 Skills
+--------------------------------------------------------------*/
+.skills {
+  .skills__list {
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    margin-bottom: 9.625rem;
+
+    @media (max-width: $phone) {
+      margin-bottom: 6.5rem;
+    }
+
+    div {
+      width: 20%;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      margin-bottom: 6rem;
+
+      @media (max-width: $tablet) {
+        width: 33.3%;
+      }
+
+      @media (max-width: $phone) {
+        width: 50%;
+      }
+
+      img {
+        transition: all 300ms ease-in-out;
+      }
+
+      &:hover {
+        img {
+          transform: translateY(-0.5rem);
+        }
+      }
+    }
+  }
+}
+
+/*--------------------------------------------------------------
+# 12 Profile
+--------------------------------------------------------------*/
+.profile {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 15.625rem;
+
+  @media (max-width: $phone) {
+    margin-bottom: 12.5rem;
+  }
+
+  @media (max-width: $tablet) {
+    flex-wrap: wrap;
+  }
+
+  &__introduction {
+    max-width: 31rem;
+
+    @media (max-width: $tablet) {
+      max-width: 100%;
+      width: 100%;
+
+      order: 2;
+    }
+
+    .title {
+      text-align: left;
+
+      @media (max-width: $phone) {
+        font-size: 5rem;
+        line-height: 5rem;
+      }
+    }
+  }
+
+  &__thumbnail {
+    position: relative;
+    max-width: 22.75rem;
+
+    @media (max-width: $tablet) {
+      max-width: 100%;
+      width: 100%;
+
+      order: 1;
+
+      text-align: center;
+
+      margin-bottom: 4rem;
+    }
+
+    // Image
+    .profile__thumbnail__img {
+      position: relative;
+      z-index: 9;
+
+      opacity: 0;
+    }
+
+    // Hexagon 
+    .profile__thubmnail__hexagon {
+      max-width: 21.063rem;
+      position: absolute;
+      top: -0.15rem;
+      left: -0.1rem;
+      z-index: 7;
+
+      stroke: $blue;
+      fill: none;
+
+      @media (max-width: $tablet) {
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
     }
   }
 }

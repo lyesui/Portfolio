@@ -200,72 +200,156 @@ function SmoothScroll(target, speed, smooth) {
 /*--------------------------------------------------------------
 # 3 Animations
 --------------------------------------------------------------*/
+/* About me [Profile] ----------*/
 const animeAboutmeThumb = anime.timeline({
-  easing: 'easeInOutCubic',
-  autoplay: false
-})
-
-const animeAboutmeTxt = anime({
-  targets: '.slice--inside',
-  translateY: ['100%', '0'],
-  easing: 'easeInOutCubic',
-  duration: 1200,
+  easing: "easeInOutCubic",
   autoplay: false,
-})
+});
 
-const hexagon = document.querySelector('.profile__thubmnail__hexagon path')
-const thumb = document.querySelector('.profile__thumbnail__img')
+const hexagon = document.querySelector(".profile__thubmnail__hexagon path");
+const thumb = document.querySelector(".profile__thumbnail__img");
 
-animeAboutmeThumb.add({
-  targets: '.profile__thubmnail__hexagon path',
-  strokeDashoffset: [anime.setDashoffset, 0],
-  easing: 'easeInOutCubic',
-  
-  complete: function(anim) {
-    animeAboutmeTxt.play()
-  }
-}).add({
-  targets: '.profile__thumbnail__img',
-  opacity: 1,
-  easing: 'easeInQuad',
-  complete: function(anime) {
-    hexagon.setAttribute("fill", "#09fbf3")
-  },
-  duration: 400,
-  
-}).add({
-  targets: '.profile__thubmnail__hexagon',
-  opacity: 1,
-  translateX: 10,
-  translateY: 10,
-  duration: 400
-})
+animeAboutmeThumb
+  .add({
+    targets: ".profile__thubmnail__hexagon path",
+    strokeDashoffset: [anime.setDashoffset, 0],
+    easing: "easeInOutCubic",
+
+    begin: function (anim) {
+      anime({
+        targets: ".profile .slice--inside",
+        translateY: ["100%", "0"],
+        easing: "easeInOutCubic",
+        duration: 1200,
+      });
+    },
+  })
+  .add({
+    targets: ".profile__thumbnail__img",
+    opacity: 1,
+    easing: "easeInQuad",
+    complete: function (anime) {
+      hexagon.setAttribute("fill", "#09fbf3");
+    },
+    duration: 400,
+  })
+  .add({
+    targets: ".profile__thubmnail__hexagon",
+    opacity: 1,
+    translateX: 10,
+    translateY: 10,
+    duration: 400,
+  });
+
 /*--------------------------------------------------------------
 # 4 Viewport checker
 --------------------------------------------------------------*/
 
 function isInViewport(element) {
-  var rect = element.getBoundingClientRect();
-  var html = document.documentElement;
-  return (
-    rect.top >= 0 &&
-    rect.left >= 0 &&
-    rect.bottom <= (window.innerHeight || html.clientHeight) &&
-    rect.right <= (window.innerWidth || html.clientWidth)
-  );
+  const bounding = element.getBoundingClientRect();
+
+  if (bounding.top + 100 < window.innerHeight) {
+    return true;
+  }
 }
 
-let isProfile = false
-document.addEventListener('scroll', () => {
-  const profile = document.querySelector('.profile')
-  if (isInViewport(profile) && isProfile == false) {
-    animeAboutmeThumb.play()
-    isProfile = true
+let isProfile = (isSkills = isFooter = isLandingAbout = false);
+
+document.addEventListener("scroll", () => {
+  /* Footer ----------*/
+  const footer = document.querySelector(".footer");
+
+  if (isInViewport(footer) && !isFooter) {
+    const animeFooter = anime.timeline({
+      easing: "easeInOutCubic",
+    });
+
+    animeFooter.add({
+      targets: ".footer .slice--inside",
+      translateY: ["100%", "0"],
+      easing: "easeInOutCubic",
+      duration: 1200,
+
+      begin: function (anim) {
+        anime({
+          targets:
+            ".footer__details__contact__social, .footer__details__credits a",
+          opacity: 1,
+          easing: "easeInOutCubic",
+          duration: 1400,
+        });
+      },
+    });
+
+    isFooter = true;
   }
-})
+
+  /* Profile ----------*/
+  const profile = document.querySelector(".profile");
+
+  if (isInViewport(profile) && !isProfile) {
+    animeAboutmeThumb.play();
+    isProfile = true;
+  }
+
+  /* Skills ----------*/
+  const skills = document.querySelector(".skills");
+
+  if (isInViewport(skills) && !isSkills) {
+    const animeSkills = anime.timeline({
+      easing: "easeInOutCubic",
+    });
+
+    animeSkills
+      .add({
+        targets: ".skills .slice--inside",
+        translateY: ["100%", "0"],
+        easing: "easeInOutCubic",
+        duration: 1200,
+      })
+
+      .add({
+        targets: ".skills__list",
+        opacity: 1,
+        easing: "easeInOutCubic",
+        duration: 800,
+      });
+
+    isSkills = true;
+  }
+});
 
 /*--------------------------------------------------------------
 # N Init page
 --------------------------------------------------------------*/
-initBackground();
-initScroll();
+
+document.addEventListener("DOMContentLoaded", (event) => {
+  initBackground();
+  initScroll();
+
+  /* About landing intro ----------*/
+  const landingAbout = document.querySelector(".landing--aboutme");
+
+  if (isInViewport(landingAbout) && !isLandingAbout) {
+    const animeLandingAbout = anime.timeline({
+      easing: "easeInOutCubic",
+    });
+
+    animeLandingAbout.add({
+      targets: ".landing__thumb",
+      opacity: 1,
+      easing: "easeInOutCubic",
+      duration: 800,
+      complete: function (anim) {
+        anime({
+          targets: ".landing--aboutme .slice--inside",
+          translateY: ["100%", "0"],
+          easing: "easeInOutCubic",
+          duration: 1200,
+        });
+      },
+    });
+
+    isLandingAbout = true;
+  }
+});

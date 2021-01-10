@@ -217,6 +217,7 @@ nav {
 @media (max-width: 35.5rem) {
   nav {
     top: 2rem;
+    position: absolute;
   }
 }
 nav .nav__logo {
@@ -349,7 +350,7 @@ nav .nav__links li a {
   font-weight: 400;
   line-height: 1.8rem;
 }
-.txt.txt--main .txt--main--blue {
+.txt .txt--main--blue {
   color: #09fbf3;
   font-weight: 700;
 }
@@ -456,6 +457,7 @@ nav .nav__links li a {
   margin: auto;
   object-fit: contain;
   object-position: center;
+  opacity: 0;
 }
 .landing--aboutme .landing__titles {
   position: absolute;
@@ -558,6 +560,9 @@ footer .footer__details .footer__details__contact {
   align-items: flex-start;
   margin-bottom: 200px;
 }
+footer .footer__details .footer__details__contact .footer__details__contact__social {
+  opacity: 0;
+}
 footer .footer__details .footer__details__contact .footer__details__contact__social ul li {
   float: left;
 }
@@ -581,6 +586,9 @@ footer .footer__details .footer__details__credits {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+footer .footer__details .footer__details__credits a {
+  opacity: 0;
 }
 
 /*--------------------------------------------------------------
@@ -625,6 +633,7 @@ footer .footer__details .footer__details__credits {
   flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 9.625rem;
+  opacity: 0;
 }
 @media (max-width: 35.5rem) {
   .skills .skills__list {

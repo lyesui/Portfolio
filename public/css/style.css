@@ -27,6 +27,7 @@
     # 9 Circles
     # 10 Skills
     # 11 Profile
+    # 12 Loading
 */
 /*--------------------------------------------------------------
 # 1 Imports
@@ -77,6 +78,9 @@ body {
   margin: 0;
   overflow-x: hidden;
   background-color: #020b28;
+}
+body.is-loading {
+  overflow: hidden;
 }
 
 h1,
@@ -737,6 +741,30 @@ footer .footer__details .footer__details__credits a {
     right: 0;
     margin: auto;
   }
+}
+
+/*--------------------------------------------------------------
+# 12 Loading
+--------------------------------------------------------------*/
+#loading {
+  width: 100%;
+  height: 100%;
+  background-color: #020b28;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#loading svg {
+  width: 38px;
+  fill: none;
+  stroke: #09fbf3;
+  stroke-width: 4px;
+  margin-bottom: 18px;
 }
 
 /*# sourceMappingURL=style.css.map */

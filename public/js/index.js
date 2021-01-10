@@ -241,6 +241,7 @@ animeAboutmeThumb
     duration: 400,
   });
 
+/* 
 /*--------------------------------------------------------------
 # 4 Viewport checker
 --------------------------------------------------------------*/
@@ -319,6 +320,44 @@ document.addEventListener("scroll", () => {
   }
 });
 
+/* Loading ----------*/
+const animeLoadingIntro = anime({
+  targets: "#loading svg path",
+  strokeDashoffset: [anime.setDashoffset, 0],
+  easing: "easeInOutCubic",
+  autoplay: true,
+
+  begin(anim) {
+    anime({
+      targets: "#loading .slice--inside",
+      translateY: ["100%", "0"],
+      easing: "easeInOutCubic",
+      duration: 1200,
+      delay: 250,
+
+      complete(anim) {
+        anime({
+          targets: "#loading .slice--inside",
+          opacity: ["1", "0.7"],
+          easing: "easeInOutCubic",
+          duration: 800,
+          loop: true,
+        });
+      },
+    });
+  },
+
+  complete: function (anim) {
+    anime({
+      targets: "#loading svg",
+      rotate: "360",
+      easing: "linear",
+      loop: true,
+      duration: 1000,
+    });
+  },
+});
+
 /*--------------------------------------------------------------
 # N Init page
 --------------------------------------------------------------*/
@@ -326,6 +365,21 @@ document.addEventListener("scroll", () => {
 document.addEventListener("DOMContentLoaded", (event) => {
   initBackground();
   initScroll();
+
+  /* Stop loading ----------*/
+  const loadingScreen = document.getElementById("loading");
+  const body = document.getElementsByTagName("body")[0];
+
+  const animeLoadingOut = anime({
+    targets: loadingScreen,
+    opacity: [1, 0],
+    easing: "easeInOutCubic",
+
+    complete(anim) {
+      loadingScreen.style.display = "none";
+      body.classList.remove("is-loading");
+    },
+  });
 
   /* About landing intro ----------*/
   const landingAbout = document.querySelector(".landing--aboutme");

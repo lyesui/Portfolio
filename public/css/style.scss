@@ -549,8 +549,9 @@ nav {
 
       margin-bottom: 0.75rem;
 
-      img:first-child {
+      svg:first-child {
         width: 5rem;
+        fill: none;
       }
 
       img:last-child {
@@ -560,11 +561,13 @@ nav {
         left: 0;
         right: 0;
         margin: auto;
+        opacity: 0;
       }
     }
 
     .txt {
       text-align: center;
+      opacity: 0;
     }
   }
 }

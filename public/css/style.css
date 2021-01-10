@@ -504,8 +504,9 @@ nav .nav__links li a {
   text-align: center;
   margin-bottom: 0.75rem;
 }
-.testimonials .testimonials__article .testimonials__article__thumb img:first-child {
+.testimonials .testimonials__article .testimonials__article__thumb svg:first-child {
   width: 5rem;
+  fill: none;
 }
 .testimonials .testimonials__article .testimonials__article__thumb img:last-child {
   position: absolute;
@@ -514,9 +515,11 @@ nav .nav__links li a {
   left: 0;
   right: 0;
   margin: auto;
+  opacity: 0;
 }
 .testimonials .testimonials__article .txt {
   text-align: center;
+  opacity: 0;
 }
 
 /*--------------------------------------------------------------

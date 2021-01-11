@@ -248,62 +248,61 @@ document.addEventListener("scroll", () => {
 # 5 Loading
 --------------------------------------------------------------*/
 const animeLoadingIntro = anime({
-    targets: "#loading svg path",
-    strokeDashoffset: [anime.setDashoffset, 0],
-    easing: "easeInOutCubic",
-    autoplay: true,
-  
-    begin(anim) {
-      anime({
-        targets: "#loading .slice--inside",
-        translateY: ["100%", "0"],
-        easing: "easeInOutCubic",
-        duration: 1200,
-        delay: 250,
-  
-        complete(anim) {
-          anime({
-            targets: "#loading .slice--inside",
-            opacity: ["1", "0.7"],
-            easing: "easeInOutCubic",
-            duration: 800,
-            loop: true,
-          });
-        },
-      });
-    },
-  
-    complete: function (anim) {
-      anime({
-        targets: "#loading svg",
-        rotate: "360",
-        easing: "linear",
-        loop: true,
-        duration: 1000,
-      });
-    },
-  });
-  
+  targets: "#loading svg path",
+  strokeDashoffset: [anime.setDashoffset, 0],
+  easing: "easeInOutCubic",
+  autoplay: true,
+
+  begin(anim) {
+    anime({
+      targets: "#loading .slice--inside",
+      translateY: ["100%", "0"],
+      easing: "easeInOutCubic",
+      duration: 1200,
+      delay: 250,
+
+      complete(anim) {
+        anime({
+          targets: "#loading .slice--inside",
+          opacity: ["1", "0.7"],
+          easing: "easeInOutCubic",
+          duration: 800,
+          loop: true,
+        });
+      },
+    });
+  },
+
+  complete: function (anim) {
+    anime({
+      targets: "#loading svg",
+      rotate: "360",
+      easing: "linear",
+      loop: true,
+      duration: 1000,
+    });
+  },
+});
+
 /*--------------------------------------------------------------
 # N Init page
 --------------------------------------------------------------*/
 document.addEventListener("DOMContentLoaded", (event) => {
-    initBackground();
-    initScroll();
-  
-    /* Stop loading ----------*/
-    const loadingScreen = document.getElementById("loading");
-    const body = document.getElementsByTagName("body")[0];
-  
-    const animeLoadingOut = anime({
-      targets: loadingScreen,
-      opacity: [1, 0],
-      easing: "easeInOutCubic",
-  
-      complete(anim) {
-        loadingScreen.style.display = "none";
-        body.classList.remove("is-loading");
-      },
-    });
-  
+  initBackground();
+  initScroll();
+
+  /* Stop loading ----------*/
+  const loadingScreen = document.getElementById("loading");
+  const body = document.getElementsByTagName("body")[0];
+
+  const animeLoadingOut = anime({
+    targets: loadingScreen,
+    opacity: [1, 0],
+    easing: "easeInOutCubic",
+
+    complete(anim) {
+      loadingScreen.style.display = "none";
+      body.classList.remove("is-loading");
+    },
   });
+});

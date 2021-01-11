@@ -32,6 +32,25 @@
 /*--------------------------------------------------------------
 # 1 Imports
 --------------------------------------------------------------*/
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 800;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 /*--------------------------------------------------------------
 # Silk Serif
 --------------------------------------------------------------*/
@@ -235,6 +254,12 @@ nav .nav__logo a {
 }
 nav .nav__logo a svg {
   height: 2.5rem;
+  transition: all 300ms ease-in-out;
+}
+nav .nav__logo a svg:hover path:last-child {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 1000;
+  animation: dash 3s linear infinite;
 }
 nav .nav__links {
   width: calc(100% - 2.5rem);

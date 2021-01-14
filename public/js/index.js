@@ -1,9 +1,134 @@
 /*--------------------------------------------------------------
 # 4 DOM Scroll
 --------------------------------------------------------------*/
-let isTestimonials = false;
+let isTestimonials = (isProjects = isProject1 = isProject2 = false);
 
 document.addEventListener("scroll", () => {
+  /* Projects intro ----------*/
+  const projects = document.querySelector(".projects");
+  if (isInViewport(projects) && !isProjects) {
+    anime({
+      targets: ".projects > .title .slice--inside",
+      translateY: ["100%", "0"],
+      easing: "easeInOutCubic",
+      duration: 1200,
+    });
+
+    isProjects = true;
+  }
+
+  const animeProject1 = anime.timeline({
+    easing: "easeInOutCubic",
+  });
+
+  const project1 = document.querySelector(".project--1");
+  if (isInViewport(project1) && !isProject1) {
+    animeProject1
+      .add({
+        targets: ".project--1 .projects__project__thumbnail__intro",
+        width: "100%",
+        easing: "easeInOutCubic",
+        duration: 800,
+
+        complete(anim) {
+          anime({
+            targets: ".project--1 .projects__project__thumbnail__intro",
+            translateX: "100%",
+            easing: "easeInOutCubic",
+            duration: 1200,
+
+            begin(anim) {
+              anime({
+                targets: ".project--1 .projects__project__thumbnail img",
+                opacity: 1,
+                easing: "easeInOutCubic",
+                duration: 200,
+              });
+            },
+
+            complete(anim) {
+              document.querySelector(
+                ".project--1 .projects__project__thumbnail__intro"
+              ).style.display = "none";
+            },
+          });
+        },
+      })
+      .add({
+        targets: ".project--1 .slice--inside",
+        translateY: ["100%", "0"],
+        easing: "easeInOutCubic",
+        duration: 1200,
+
+        begin(anim) {
+          anime({
+            targets: ".project--1 ul",
+            opacity: 1,
+            easing: "easeInOutCubic",
+            duration: 1200,
+          });
+        },
+      });
+
+    isProject1 = true;
+  }
+
+  const animeProject2 = anime.timeline({
+    easing: "easeInOutCubic",
+  });
+
+  const project2 = document.querySelector(".project--2");
+  if (isInViewport(project2) && !isProject2) {
+    animeProject2
+      .add({
+        targets: ".project--2 .projects__project__thumbnail__intro",
+        width: "100%",
+        easing: "easeInOutCubic",
+        duration: 800,
+
+        complete(anim) {
+          anime({
+            targets: ".project--2 .projects__project__thumbnail__intro",
+            translateX: "100%",
+            easing: "easeInOutCubic",
+            duration: 1200,
+
+            begin(anim) {
+              anime({
+                targets: ".project--2 .projects__project__thumbnail img",
+                opacity: 1,
+                easing: "easeInOutCubic",
+                duration: 200,
+              });
+            },
+
+            complete(anim) {
+              document.querySelector(
+                ".project--2 .projects__project__thumbnail__intro"
+              ).style.display = "none";
+            },
+          });
+        },
+      })
+      .add({
+        targets: ".project--2 .slice--inside",
+        translateY: ["100%", "0"],
+        easing: "easeInOutCubic",
+        duration: 1200,
+
+        begin(anim) {
+          anime({
+            targets: ".project--2 ul",
+            opacity: 1,
+            easing: "easeInOutCubic",
+            duration: 1200,
+          });
+        },
+      });
+
+    isProject2 = true;
+  }
+
   /* Testimonialse intro ----------*/
   const testimonials = document.querySelector(".testimonials");
 
@@ -44,21 +169,6 @@ document.addEventListener("scroll", () => {
 
     isTestimonials = true;
   }
-
-  /*animeSkills
-    .add({
-      targets: ".skills .slice--inside",
-      translateY: ["100%", "0"],
-      easing: "easeInOutCubic",
-      duration: 1200,
-    })
-
-    .add({
-      targets: ".skills__list",
-      opacity: 1,
-      easing: "easeInOutCubic",
-      duration: 800,
-    });*/
 });
 
 /*--------------------------------------------------------------
